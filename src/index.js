@@ -3,6 +3,7 @@ import 'regenerator-runtime/runtime';
 import axios from 'axios';
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
+import{ onTop, onScroll } from './js/buttonUp'
 
 const searchField = document.querySelector("#search-form");
 const input = document.querySelector(".search-input");
@@ -10,7 +11,8 @@ const searchBtn = document.querySelector(".search-button");
 const gallery = document.querySelector(".gallery");
 const loadMoreBtn = document.querySelector(".load-more");
 
-
+onTop();
+onScroll();
 // const API_KEY ='32122100-8cc25e477ccf1dfc443f6b4e8';
 // const BASE_URL = 'https://pixabay.com/api/';
 
