@@ -7,18 +7,25 @@
     <link rel="stylesheet" href="./sass/index.scss" />
     <script type="module" src="./index.js"></script>
   </head>
- <body>
-    <form class="search-form" id="search-form">
-      <input
-        type="text"
-        name="searchQuery"
-        autocomplete="off"
-        placeholder= "Search images..."
-      />
-      <button type="submit">&#128269</button>
+<body>
+  <header class="search-block">
+    <form class="search-navigation container" id="search-form">
+      <input 
+      class="search-input" 
+      type="text"
+      name="searchQuery"
+      autocomplete="off"  
+      placeholder="Search images...">
+      <button class='search-button' type="submit">
+        Search
+      </button>
     </form>
-    <div class="gallery" >
+  </header>
+    <div class="gallery  container" >
+      <!-- Here will be images cards -->
     </div>
+    <button type="button" class="load-more visually-hidden">Load more</button>
+    <button type="button" class="on-top btn-to-top--visible">Top</button>
     <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
     <!-- <include src="./partials/example.html"></include> -->
   </body>
