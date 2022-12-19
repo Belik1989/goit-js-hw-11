@@ -16,12 +16,14 @@ onScroll();
 // const API_KEY ='32122100-8cc25e477ccf1dfc443f6b4e8';
 // const BASE_URL = 'https://pixabay.com/api/';
 
+
 const DEFAULT_PAGE = 1;
 let page = DEFAULT_PAGE;
 const perPage = 40;
 let searchValue = '';
 let simpleLightbox;
 
+//опції для бібліотеки SimpleLightBox
 const optionsSL = {
     overlayOpacity: 0.5,
     captionsData: "alt",
@@ -48,6 +50,7 @@ async function fetchImages(searchValue) {
     return images.data;
 };
 
+// функція для використання введених даних в input та подальшої оброки даних отриманих з fetchImages
 async function onSubmit(event) {
     event.preventDefault();
     searchValue = input.value.trim();
@@ -78,6 +81,7 @@ async function onSubmit(event) {
     };
 };
 
+// СТВОРЮЄМО КАРТКИ ДО НАШОЇ GALLERY
 function createImage(images) {
     return images.map((image) => `<div class="photo-card">
     <a href="${image.largeImageURL}">
@@ -100,6 +104,8 @@ function createImage(images) {
 </div>`).join('');
 };
 
+// ПІСЛЯ ЗАКІНЧИННЯ КОНТЕНТУ(40 ЗОБРАЖЕНЬ) НАТИСКОМ НА loadMoreBtn ВИКЛИКАЄМ onNextPage ДЛЯ ПОНОВЛЕННЯ
+// КОНТЕНТУ АБО ЗУПИНКИ ПОШУКУ ПРИ МАКСИМАЛЬНІЙ КІЛЬКОСТІ ЗНАЙДЕНИХ ЗОБРАЖЕННЯ
 async function onNextPage() {
     simpleLightbox.destroy();
     try {
@@ -117,6 +123,7 @@ async function onNextPage() {
     };
 };
 
+// ДОДАЄМО ФУНКЦІЮ З НАЛАШТУВАННЯМ ПЛАВНОГО ПРОГОРТУВАННЯ
 function smoothScroll() {
     const { height: cardHeight } =
         document.querySelector(".photo-card").firstElementChild.getBoundingClientRect();
@@ -126,14 +133,14 @@ function smoothScroll() {
 });
 };
 
+// ФУНУЦІ ДЛЯ ТОГО ЯКЩО CATCH() СПІЙМАЄ ПОМИЛКУ ПРИ ОБРОБЦІ onSubmit та onNextPage
 function ifError() {
     clearAll();
-    // buttonHidden();
+    buttonHidden();
     Notiflix.Report.info('Oh', 'Something get wrong, please try again', 'Okay');
 };
 
-// під час нового пошуку всі дані та номерс торінки будуть очищатись
-// до початкового default стану
+// під номер сторінки будуть очищатись до початкового default стану
 function resetPage() {
     page = DEFAULT_PAGE;
 };
@@ -143,10 +150,10 @@ function clearAll() {
     gallery.innerHTML = '';
 };
 
+// функції для приховання/відображення кнопки loadMoreBtn
 function buttonHidden() {
     loadMoreBtn.classList.add("visually-hidden");
 };
-
 function buttonUnHidden() {
     loadMoreBtn.classList.remove("visually-hidden");
 };

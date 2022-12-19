@@ -1,6 +1,8 @@
 @import './common';
 @import './example';
-
+// body{
+//     background: linear-gradient(32deg, rgba(106,106,104,1) 0%, rgba(97,97,95,1) 2%, rgba(221,224,231,1) 61%);;
+// }
 .container {
     margin: 0 auto;
     padding-left: 50px;
@@ -20,7 +22,7 @@
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
     position:static;
-    box-shadow: 1px 1px 2px rgb(52, 60, 62);
+    box-shadow: 1px 5px 10px rgb(52, 60, 62);
     background: linear-gradient(32deg, rgba(246,243,26,1) 14%, rgba(246,243,26,1) 39%, rgba(57,118,246,1) 61%);
 }
     .search-input {
